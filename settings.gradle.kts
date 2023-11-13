@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Carta_Mas_Alta"
+rootProject.name = "CartaAlta"
 include(":app")
  

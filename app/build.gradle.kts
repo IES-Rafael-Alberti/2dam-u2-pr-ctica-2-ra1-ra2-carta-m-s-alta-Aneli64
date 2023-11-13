@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.carta_mas_alta"
-    compileSdk = 33
+    namespace = "com.example.cartaalta"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.carta_mas_alta"
+        applicationId = "com.example.cartaalta"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -47,6 +47,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
