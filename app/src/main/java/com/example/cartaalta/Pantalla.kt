@@ -48,6 +48,7 @@ fun Juego() {
         Row {
             Button(onClick = {
                 //Si se acaba nuestra baraja, vuelve a crear una nueva (para que no cierre el programa)
+                Baraja.barajar()
                 if (Baraja.listaCartas.size == 0){
                     Baraja.crearBaraja()
                     dorsoCarta = "detras"
