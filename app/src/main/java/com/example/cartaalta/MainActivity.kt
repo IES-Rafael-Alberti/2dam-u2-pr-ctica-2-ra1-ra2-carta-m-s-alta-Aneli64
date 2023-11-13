@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.cartaalta.ui.theme.CartaAltaTheme
+import com.example.cartaalta.ui.theme.Juego
+import java.net.JarURLConnection
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,11 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Baraja.crearBaraja()
-                    for (item in Baraja.listaCartas){
-                        println(item)
-                    }
-
+                    Juego()
                 }
             }
         }
