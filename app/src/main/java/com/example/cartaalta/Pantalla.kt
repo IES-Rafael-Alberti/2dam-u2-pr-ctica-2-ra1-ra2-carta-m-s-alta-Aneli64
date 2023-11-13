@@ -18,37 +18,54 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+
 @Preview
 @Composable
-fun Juego(){
+fun Juego() {
 
     val context = LocalContext.current
     var dorsoCarta by rememberSaveable { mutableStateOf("detras") }
-    var idCarta by rememberSaveable { mutableStateOf(context.resources.getIdentifier(dorsoCarta, "drawable", context.packageName)) }
-
-
+    var idCarta by rememberSaveable {
+        mutableStateOf(
+            context.resources.getIdentifier(
+                dorsoCarta,
+                "drawable",
+                context.packageName
+            )
+        )
+    }
 
     Column(
         Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Row {
             Image(
-                painter = painterResource(id = idCarta) , contentDescription = "")
+                painter = painterResource(id = idCarta), contentDescription = ""
+            )
         }
         Row {
             Button(onClick = {
+                //Si se acaba nuestra baraja, vuelve a crear una nueva (para que no cierre el programa)
+                if (Baraja.listaCartas.size == 0){
+                    Baraja.crearBaraja()
+                    dorsoCarta = "detras"
+                }
                 val carta = Baraja.dameCarta()
-                //dorsoCarta = "${carta.palo.toString()[0].lowercase()}${carta.idDrawable}"
                 dorsoCarta = "c${carta.idDrawable}"
-                println("$carta || $dorsoCarta")
+                println("$carta || $dorsoCarta || ${Baraja.listaCartas.size}")
 
             }) {
                 Text(text = "Dame carta")
             }
         }
         Row {
-            Button(onClick = {  }) {
+            Button(onClick = {
+                Baraja.crearBaraja()
+                Baraja.barajar()
+                dorsoCarta = "detras"
+            }) {
                 Text(text = "Reiniciar")
             }
         }

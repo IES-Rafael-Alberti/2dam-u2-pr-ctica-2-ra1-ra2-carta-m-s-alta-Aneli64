@@ -5,9 +5,9 @@ enum class Palos {
 }
 
 enum class Naipes {
-    AS, DOS, TRES, CUATRO, CINCO, SEIS, SIETE, OCHO, NUEVE, DIEZ, REINA, REY
+    AS, DOS, TRES, CUATRO, CINCO, SEIS, SIETE, OCHO, NUEVE, DIEZ, JOTA, REINA, REY
 
-} //VALET, DAME, ROI
+}
 class Baraja {
     //meteremos todos los metodos dentro de nuestro companion object,
     // ya que lo llamaremos estaticamente
