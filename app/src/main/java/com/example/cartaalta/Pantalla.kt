@@ -1,7 +1,9 @@
 package com.example.cartaalta
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,7 +12,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -25,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -63,7 +68,7 @@ fun Juego() {
                 painter = painterResource(id = idCarta), contentDescription = ""
             )
         }
-        Row (Modifier.padding(20.dp)){
+        Row (Modifier.padding(10.dp)){
             Button(onClick = {
                 //Si se acaba nuestra baraja, vuelve a crear una nueva (para que no cierre el programa)
                 Baraja.barajar()
@@ -75,8 +80,8 @@ fun Juego() {
                 dorsoCarta = "c${carta.idDrawable}"
                 println("$carta || $dorsoCarta || ${Baraja.listaCartas.size}")
 
-            }) {
-                Text(text = "Dame carta")
+            },Modifier.padding(10.dp).border(2.dp, color = Color.Red, shape = CircleShape), colors = ButtonDefaults.textButtonColors(Color.White)) {
+                Text(text = "Dame carta", color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 20.sp)
             }
 
             //Boton quen os baraja nuestras cartas y pone de nuevo la carta boca abajo
@@ -84,8 +89,8 @@ fun Juego() {
                 Baraja.crearBaraja()
                 Baraja.barajar()
                 dorsoCarta = "detras"
-            }) {
-                Text(text = "Reiniciar")
+            },Modifier.padding(10.dp).border(2.dp, color = Color.Red, shape = CircleShape), colors = ButtonDefaults.textButtonColors(Color.White)) {
+                Text(text = "Reiniciar", color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 20.sp)
             }
         }
         //Metodo que nos permite ir actualizando las cartas
